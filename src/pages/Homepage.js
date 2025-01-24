@@ -4,8 +4,8 @@ import Menu from '../../src/component/Menu';
 import Banner from '../../src/component/Banner';
 import Betterfuture from '../../src/component/Betterfuture';
 import Aboutus from '../../src/component/Aboutus';
-import Joinourteam from '../../src/component/Joinourteam'; 
-import Services from '../../src/component/Services'; 
+import Joinourteam from '../../src/component/Joinourteam';
+import Services from '../../src/component/Services';
 import Happyclients from '../../src/component/Happyclients';
 import Testimonials from '../../src/component/Testimonials';
 import Gallery from '../../src/component/Gallery';
@@ -16,20 +16,20 @@ function Homepage() {
   return (
     <>
       <Header />
-      <Menu/>
+      <Menu />
       <Banner/>
-      <Betterfuture/>
-      <Aboutus/>
-      <Joinourteam/>
-      <Services/>
-      <Happyclients/>
-      <Testimonials/>
-      <Gallery/>
-      <Contactus/>
-      <Footer/>
-      <Copyright/>
+      <Betterfuture />
+      <Aboutus />
+      <Joinourteam />
+      <Services />
+      <Happyclients />
+      <Testimonials />
+      <Gallery />
+      <Contactus />
+      <Footer />
+      <Copyright />
     </>
-    
+
   );
 }
 

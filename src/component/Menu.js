@@ -1,42 +1,42 @@
 import React, { useState } from "react";
 import logo from "../assets/images/logo.png";
-import banner1 from "../assets/images/banner1.jpg";
 import { useNavigate } from 'react-router-dom';
 
 const Menu = () => {
-    const navigate = useNavigate(); 
+    const navigate = useNavigate();
     const [menuOpen, setMenuOpen] = useState(false);
 
     return (
         <>
             <section className="text-gray-800">
-                <div className="container mx-auto">
-                    <div className="container mx-auto ">
-                        <div className="flex justify-between items-center mx-auto ">
+                <div className="py-0 mx-auto px-4 md:px-6 lg:px-8 xl:px-24">
+                   
+                        <div className="flex items-center mx-auto ">
 
-                            <a href="">
-                                <img
-                                    src={logo}
-                                    alt="logo"
-                                    className="h-24 md:h-32 lg:h-44 w-[150px] md:w-[200px] lg:w-[200px] xl:w-[300px] aos-init aos-animate"
-                                />
-                            </a>
+                <a href="">
+                    <img
+                        src={logo}
+                        alt="logo"
+                        className="h-24 md:h-32 lg:h-64 w-[150px] md:w-[200px] lg:w-[200px] xl:w-[500px]"
+                    />
+                </a>
 
                             <button
                                 className="block lg:hidden text-3xl focus:outline-none"
                                 onClick={() => setMenuOpen(!menuOpen)}
                             >
-                                ☰
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                                </svg>
+
                             </button>
 
 
-                            <ul
-                                className={`${menuOpen ? "block" : "hidden"
-                                    } absolute top-20 left-0 w-full bg-white lg:flex lg:static lg:w-auto lg:bg-transparent lg:space-x-6`}
-                            >
+                            <ul className={`${menuOpen ? "block" : "hidden"
+                                    } absolute top-20 left-0 w-full bg-white lg:flex lg:static md:w-auto lg:w-auto lg:bg-transparent lg:space-x-6 flex-wrap`}>
                                 <li>
                                     <a
-                                        className="block p-4 text-lg lg:text-2xl font-semibold hover:text-blue-600"
+                                        className="block p-6 text-lg lg:text-2xl font-semibold hover:text-blue-600"
                                         href=""
                                     >
                                         Home
@@ -44,7 +44,7 @@ const Menu = () => {
                                 </li>
                                 <li className="relative group">
                                     <a
-                                        className="block p-4 text-lg lg:text-2xl font-semibold hover:text-blue-600 flex items-center"
+                                        className="block p-6 text-lg lg:text-2xl font-semibold hover:text-blue-600 flex items-center"
                                         href=""
                                     >
                                         Services
@@ -114,7 +114,7 @@ const Menu = () => {
                                 </li>
                                 <li className="relative group">
                                     <a
-                                        className="block p-4 text-lg lg:text-2xl font-semibold hover:text-blue-600 flex items-center"
+                                        className="block p-6 text-lg lg:text-2xl font-semibold hover:text-blue-600 flex items-center"
                                         href=""
                                     >
                                         Candidates
@@ -145,15 +145,15 @@ const Menu = () => {
                                 </li>
                                 <li>
                                     <a
-                                        className="block p-4 text-lg lg:text-2xl font-semibold hover:text-blue-600"
+                                        className="block p-6 text-lg lg:text-2xl font-semibold hover:text-blue-600"
                                         href=""
                                     >
                                         Clients
                                     </a>
                                 </li>
-                                <li>
+                                <li className="">
                                     <a
-                                        className="block p-4 text-lg lg:text-2xl font-semibold hover:text-blue-600"
+                                        className="block p-6 text-2xl  font-semibold hover:text-blue-600"
                                         href=""
                                     >
                                         Contact Us
@@ -161,7 +161,7 @@ const Menu = () => {
                                 </li>
                                 <li>
                                     <a
-                                        className="block p-4 text-lg lg:text-2xl font-semibold hover:text-blue-600"
+                                        className="block p-6 text-lg lg:text-2xl font-semibold hover:text-blue-600"
                                         href=""
                                     >
                                         FAQs
@@ -169,7 +169,7 @@ const Menu = () => {
                                 </li>
                                 <li>
                                     <a
-                                        className="block p-4 text-lg lg:text-2xl font-semibold hover:text-blue-600"
+                                        className="block p-6 text-lg lg:text-2xl font-semibold hover:text-blue-600"
                                         href="/Signin"
                                     >
                                         Sign In
@@ -177,7 +177,7 @@ const Menu = () => {
                                 </li>
                                 <li>
                                     <a
-                                        className="block p-4 text-lg lg:text-2xl text-white font-bold"
+                                        className="block p-6 text-lg lg:text-2xl text-white font-bold"
                                         href="/Signup"
                                     >
                                         <span className="bg-blue-500 rounded px-4 py-2">Sign Up</span>
@@ -185,12 +185,9 @@ const Menu = () => {
                                 </li>
                             </ul>
                         </div>
-                    </div>
+                   
                 </div>
             </section>
-
-  
-
         </>
     );
 };

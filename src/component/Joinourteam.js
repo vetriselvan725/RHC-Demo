@@ -5,9 +5,8 @@ import Group3 from '../assets/images/Group3.png';
 const Joinourteam = () => {
     return (
         <>
-            <section className="text-grey-800">
-
-            <div
+            <section className="text-gray-800">
+                <div
                     className="bg-[#F4FEFF]"
                     style={{
                         backgroundImage: `url(${Group2})`,
@@ -16,25 +15,35 @@ const Joinourteam = () => {
                         backgroundPosition: "center",
                     }}
                 >
+                    <div className="bg-[#0082da] mt-5">
+                        <div className="mx-auto p-20">
+                            <div className="flex flex-col-reverse md:flex-row items-center">
+                                
+                                <div className="w-full md:w-1/2 py-16 md:py-36 text-center md:text-left">
+                                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white font-font-sans">
+                                        Join Our Team, View our current openings now!
+                                    </h1>
+                                    <p className="mt-6 sm:mt-8 text-lg sm:text-xl md:text-2xl font-semibold text-white leading-8 md:leading-[42px] sm:leading-[42px]">
+                                        Exciting Opportunities Await! Be Part of a Dynamic Community Dedicated to Transforming Lives and Shaping the Future of Healthcare.
+                                    </p>
+                                    <button className="border-4 border-white bg-white rounded font-bold mt-8 py-3 px-6 sm:py-5 sm:px-8 text-lg sm:text-2xl text-[#0082da]">
+                                        View all Vacancies
+                                    </button>
+                                </div>
 
-                <div className="bg-[#0082da] mt-5">
-                    <div className="container mx-auto">
-                        <div className="flex">
-                            <div className="w-1/2 py-36">
-                                <h1 className="text-6xl font-bold text-[#FFFF] font-font-sans">Join Our Team, View our current openings now!</h1>
-                                <p className="mt-10 text-2xl font-semibold text-[#FFFF] leading-[42px]">Exciting Opportunities Await! Be Part of a Dynamic Community Dedicated to Transforming Lives and Shaping the Future of Healthcare</p>
-                                <button className="border-4 border-[#FFFF] bg-[#FFFF] rounded font-bold mt-10 py-5 px-8 text-2xl text-[#0082da]">View all Vacancies</button>
-                            </div>
-                            
-                            <div className="w-1/2">
-                                <img src={Group3} alt="Group1"></img>
+                                
+                                <div className="w-full md:w-1/2 flex justify-center md:justify-end">
+                                    <img
+                                        src={Group3}
+                                        alt="Group3"
+                                        className="w-full max-w-sm sm:max-w-md md:max-w-lg"
+                                    />
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                </div>
             </section>
-
         </>
     );
 };

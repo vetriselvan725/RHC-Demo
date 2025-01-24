@@ -11,9 +11,9 @@ const Signup = () => {
                         <div className="flex">
                         <div className="w-1/2 p-4 shadow-md rounded">
                                 <div class="bg-white rounded-lg mt-10">
-                                <div className="w-full  ml-12">
-                                    <img className="w-[35%] pr-10" src={footerimg}></img>
-                                </div>
+                                <a href="/"><div className="w-full  ml-12">
+                                 <img className="w-[35%] pr-10" src={footerimg}></img>
+                                </div> </a> 
                                 <h2 className="mt-5 text-3xl font-bold text-[#000] font-font-sans ml-12"><span className="text-[#0082da] mr-3">Welcome,</span>Sign up to RHC 360 Solutions</h2>
                                     <form className="bg-white rounded-lg p-12">
                                     <div className="flex">
@@ -40,7 +40,7 @@ const Signup = () => {
                                         </div>
                                         <div class="mb-4">
                                             <button className="w-full text-2xl p-3 border-2 hover:border-[blue] rounded-md bg-blue-600 hover:bg-blue-700 text-[#FFFF] font-bold">SignUp</button>
-                                            <h2 className="mt-5 text-2xl text-[#000] font-font-sans mt-5 ">Already have an account?<span className="text-[#0082da] ml-3 font-bold">Sign up</span></h2>
+                                            <a href="/Signin"><h2 className="mt-5 text-2xl text-[#000] font-font-sans mt-5 ">Already have an account?<span className="text-[#0082da] ml-3 font-bold">Sign in</span></h2></a>
                                         </div>
                                     </form>
                                 </div>

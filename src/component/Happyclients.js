@@ -1,40 +1,49 @@
 import React from "react";
 import Group4 from '../assets/images/Group4.png';
 
-
 const Happyclients = () => {
     return (
         <>
-            <section className="text-grey-800">
-
+            <section className="text-gray-800">
                 <div className="bg-[#0082da] mt-5">
-                    <div className="container mx-auto">
-                        <div className="flex">
-                            <div className="w-1/2 py-36">
-                                <h1 className="text-6xl font-bold text-[#FFFF] font-font-sans">200+</h1>
-                                <p className="mt-10 text-2xl font-semibold text-[#FFFF] leading-[42px]">Carers</p>
+                    <div className="mx-auto p-20">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 py-16">
+                            <div className="text-center md:text-left px-10">
+                                <h1 className="text-5xl md:text-8xl font-bold text-white font-font-sans">200+</h1>
+                                <p className="mt-6 text-xl md:text-4xl font-semibold text-white leading-relaxed">
+                                    Carers
+                                </p>
                             </div>
-                            <div className="w-1/2 py-36">
-                                <h1 className="text-6xl font-bold text-[#FFFF] font-font-sans">900+</h1>
-                                <p className="mt-10 text-2xl font-semibold text-[#FFFF] leading-[42px]">Happy Clients</p>
+
+                            <div className="text-center md:text-left">
+                                <h1 className="text-5xl md:text-8xl font-bold text-white font-font-sans">900+</h1>
+                                <p className="mt-6 text-xl md:text-4xl font-semibold text-white leading-relaxed">
+                                    Happy Clients
+                                </p>
                             </div>
-                            <div className="w-1/2 py-36">
-                                <h1 className="text-6xl font-bold text-[#FFFF] font-font-sans">100+</h1>
-                                <p className="mt-10 text-2xl font-semibold text-[#FFFF] leading-[42px]">Medical Experts</p>
+
+                            <div className="text-center md:text-left">
+                                <h1 className="text-5xl md:text-8xl font-bold text-white font-font-sans">100+</h1>
+                                <p className="mt-6 text-xl md:text-4xl font-semibold text-white leading-relaxed">
+                                    Medical Experts
+                                </p>
                             </div>
-                            <div className="w-1/2 py-36">
-                                <h1 className="text-6xl font-bold text-[#FFFF] font-font-sans">15+</h1>
-                                <p className="mt-10 text-2xl font-semibold text-[#FFFF] leading-[42px]">Registered with CQC</p>
+
+                            <div className="text-center md:text-left">
+                                <h1 className="text-5xl md:text-8xl font-bold text-white font-font-sans">15+</h1>
+                                <p className="mt-6 text-xl md:text-4xl font-semibold text-white leading-relaxed">
+                                    Registered with CQC
+                                </p>
                             </div>
-                        </div>
-                        <div className="w-full pb-20">
-                            <img className="w-full " src={Group4}></img>
                         </div>
 
+                       
+                        <div className="w-full">
+                            <img className="w-full object-cover" src={Group4} alt="Happy Clients" />
+                        </div>
                     </div>
                 </div>
             </section>
-
         </>
     );
 };
