@@ -12,6 +12,8 @@ import Gallery from '../../src/component/Gallery';
 import Contactus from '../../src/component/Contactus';
 import Copyright from '../../src/component/Copyright';
 
+
+
 function Homepage() {
   return (
     <>

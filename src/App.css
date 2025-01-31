@@ -28,6 +28,15 @@
   color: #61dafb;
 }
 
+
+.slick-slider {
+    overflow: hidden !important;
+  }
+  .slick-list {
+    overflow: hidden !important;
+  }
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

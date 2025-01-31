@@ -22,18 +22,10 @@ const Gallery = () => {
             <div className="bg-[#0082da]">
                 <div className="mx-auto p-20 pb-20">
                     <div className="text-center py-10">
-                        <h1 
-                            className="text-2xl sm:text-3xl font-bold text-white font-font-sans" 
-                            data-aos="fade-up" 
-                            data-aos-duration="2000"
-                        >
+                        <h1 className="text-2xl sm:text-3xl font-bold text-white font-font-sans" data-aos="fade-up" data-aos-duration="2000">
                             Gallery
                         </h1>
-                        <p 
-                            className="mt-9 text-lg sm:text-2xl lg:text-5xl text-white leading-relaxed" 
-                            data-aos="zoom-in" 
-                            data-aos-duration="2000"
-                        >
+                        <p className="mt-9 text-lg sm:text-2xl lg:text-5xl text-white leading-relaxed" data-aos="zoom-in" data-aos-duration="2000">
                             Capturing Moments of Healing, Care, and Hope
                         </p>
                     </div>
@@ -42,8 +34,7 @@ const Gallery = () => {
                     <Swiper
                         modules={[Navigation, Pagination, Autoplay]}
                         spaceBetween={20}
-                        slidesPerView={1} 
-                        slidesPerGroup={1} 
+                        slidesPerView={1}
                         navigation
                         pagination={{ clickable: true }}
                         autoplay={{ delay: 3000 }}
@@ -52,13 +43,7 @@ const Gallery = () => {
                     >
                         {images.map((img, index) => (
                             <SwiperSlide key={index}>
-                                <img 
-                                    className="w-full h-auto rounded-lg" 
-                                    data-aos="zoom-in" 
-                                    data-aos-duration="2000" 
-                                    src={img} 
-                                    alt={`Gallery ${index + 1}`} 
-                                />
+                                <img className="w-full h-auto rounded-lg" data-aos="zoom-in" data-aos-duration="2000" src={img} alt={`Gallery ${index + 1}`} />
                             </SwiperSlide>
                         ))}
                     </Swiper>

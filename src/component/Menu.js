@@ -13,7 +13,7 @@ const Menu = () => {
                    
                         <div className="flex items-center mx-auto ">
 
-                <a href="">
+                <a href="/" data-aos="zoom-in">
                     <img
                         src={logo}
                         alt="logo"
@@ -132,7 +132,7 @@ const Menu = () => {
 
                                     <ul className="absolute hidden group-hover:block bg-white shadow-lg p-4 z-10">
                                         <li>
-                                            <a className="block text-2xl py-2 px-4 hover:bg-gray-200" href="">
+                                            <a className="block text-2xl py-2 px-4 hover:bg-gray-200" href="/National">
                                                 National
                                             </a>
                                         </li>

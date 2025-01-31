@@ -1,17 +1,19 @@
 import React, { useState } from "react";
+// import { auth } from "../Firebase/config"; // Import auth from your Firebase setup file
 import signup1 from "../assets/images/signup/signup1.png";
 import signup2 from "../assets/images/signup/signup2.png";
 import footerimg from "../assets/images/signup/footerimg.jpg";
 
 const Signin = () => {
+  // State for email and password
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  
+  // Handle login
   const handleLogin = async (e) => {
-    e.preventDefault(); 
+    e.preventDefault(); // Prevent default form submission
     try {
-      
+      // Firebase login
       
       console.log("Logged in:", email);
     } catch (error) {

@@ -20,23 +20,23 @@ const Joinourteam = () => {
                             <div className="flex flex-col-reverse md:flex-row items-center">
                                 
                                 <div className="w-full md:w-1/2 py-16 md:py-36 text-center md:text-left">
-                                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white font-font-sans">
+                                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white font-font-sans" data-aos="fade-up" data-aos-duration="2000">
                                         Join Our Team, View our current openings now!
                                     </h1>
-                                    <p className="mt-6 sm:mt-8 text-lg sm:text-xl md:text-2xl font-semibold text-white leading-8 md:leading-[42px] sm:leading-[42px]">
+                                    <p className="mt-6 sm:mt-8 text-lg sm:text-xl md:text-2xl font-semibold text-white leading-8 md:leading-[42px] sm:leading-[42px]" data-aos="zoom-in" data-aos-duration="2000">
                                         Exciting Opportunities Await! Be Part of a Dynamic Community Dedicated to Transforming Lives and Shaping the Future of Healthcare.
                                     </p>
-                                    <button className="border-4 border-white bg-white rounded font-bold mt-8 py-3 px-6 sm:py-5 sm:px-8 text-lg sm:text-2xl text-[#0082da]">
+                                    <button className="border-4 border-white bg-white rounded font-bold mt-8 py-3 px-6 sm:py-5 sm:px-8 text-lg sm:text-2xl text-[#0082da]" data-aos="zoom-in" data-aos-duration="2000">
                                         View all Vacancies
                                     </button>
                                 </div>
 
                                 
-                                <div className="w-full md:w-1/2 flex justify-center md:justify-end">
+                                <div className="w-full md:w-1/2 flex justify-center ">
                                     <img
                                         src={Group3}
                                         alt="Group3"
-                                        className="w-full max-w-sm sm:max-w-md md:max-w-lg"
+                                        className="w-full max-w-sm sm:max-w-md md:max-w-lg" data-aos="zoom-in" data-aos-duration="2000"
                                     />
                                 </div>
                             </div>
