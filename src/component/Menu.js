@@ -146,7 +146,7 @@ const Menu = () => {
                                 <li>
                                     <a
                                         className="block p-6 text-lg lg:text-2xl font-semibold hover:text-blue-600"
-                                        href=""
+                                        href="/"
                                     >
                                         Clients
                                     </a>
@@ -154,7 +154,7 @@ const Menu = () => {
                                 <li className="">
                                     <a
                                         className="block p-6 text-2xl  font-semibold hover:text-blue-600"
-                                        href=""
+                                        href="/"
                                     >
                                         Contact Us
                                     </a>
@@ -162,7 +162,7 @@ const Menu = () => {
                                 <li>
                                     <a
                                         className="block p-6 text-lg lg:text-2xl font-semibold hover:text-blue-600"
-                                        href=""
+                                        href="/"
                                     >
                                         FAQs
                                     </a>

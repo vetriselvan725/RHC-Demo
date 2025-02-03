@@ -1,9 +1,42 @@
+import { useState } from "react";
+
 import React from "react";
 import signup1 from '../assets/images/signup/signup1.png';
 import signup2 from '../assets/images/signup/signup2.png';
 import footerimg from '../assets/images/signup/footerimg.jpg';
 
 const Signup = () => {
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const userData = {
+            firstName,
+            lastName,
+            email,
+            phone,
+            password,
+            confirmPassword,
+        };
+
+        try {
+            const response = await fetch('http://localhost:3000/register', {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(userData),
+            });
+            
+        } catch (error) {
+            alert('Error: ' + error.response.data.message);
+        }
+    };
+
     return (
         <>
             <section className="text-grey-800 mt-10">
@@ -22,11 +55,13 @@ const Signup = () => {
                                         <span className="text-[#0082da] mr-3">Welcome,</span>
                                         Sign up to RHC 360 Solutions
                                     </h2>
-                                    <form className="bg-white rounded-lg p-6 sm:p-12">
+                                    <form onSubmit={handleSubmit} className="bg-white rounded-lg p-6 sm:p-12">
                                         <div className="flex flex-col sm:flex-row sm:space-x-4">
                                             <div className="mb-4 w-full">
                                                 <input type="text" name="firstName"
                                                     placeholder="First Name"
+                                                    value={firstName}
+                                                    onChange={(e) => setFirstName(e.target.value)}
                                                     className="w-full text-2xl p-2 border hover:border-[#0082DA] rounded-md"
                                                     required
                                                 />
@@ -36,6 +71,8 @@ const Signup = () => {
                                                     type="text"
                                                     name="lastName"
                                                     placeholder="Last Name"
+                                                    value={lastName}
+                                                    onChange={(e) => setLastName(e.target.value)}
                                                     className="w-full text-2xl p-2 border hover:border-[#0082DA] rounded-md"
                                                     required
                                                 />
@@ -47,6 +84,8 @@ const Signup = () => {
                                                     type="email"
                                                     name="email"
                                                     placeholder="Email Id"
+                                                    value={email}
+                                                    onChange={(e) => setEmail(e.target.value)}
                                                     className="w-full text-2xl p-2 border shadow-lg hover:border-[#0082DA] rounded-md"
                                                     required
                                                 />
@@ -56,6 +95,8 @@ const Signup = () => {
                                                     type="text"
                                                     name="phone"
                                                     placeholder="Phone Number (Optional)"
+                                                    value={phone}
+                                                    onChange={(e) => setPhone(e.target.value)}
                                                     className="w-full text-2xl p-2 border hover:border-[#0082DA] rounded-md"
                                                 />
                                             </div>
@@ -65,6 +106,8 @@ const Signup = () => {
                                                 type="password"
                                                 name="password"
                                                 placeholder="Password"
+                                                value={password}
+                                                onChange={(e) => setPassword(e.target.value)}
                                                 className="w-full text-2xl p-2 border hover:border-[#0082DA] rounded-md"
                                                 required
                                             />
@@ -74,12 +117,14 @@ const Signup = () => {
                                                 type="password"
                                                 name="confirmPassword"
                                                 placeholder="Confirm Password"
+                                                value={confirmPassword}
+                                                onChange={(e) => setConfirmPassword(e.target.value)}
                                                 className="w-full text-2xl p-2 border hover:border-[#0082DA] rounded-md"
                                                 required
                                             />
                                         </div>
                                         <div className="mb-4">
-                                            <button className="w-full text-2xl p-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-md">
+                                            <button type="submit" className="w-full text-2xl p-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-md">
                                                 Sign Up
                                             </button>
                                             <a href="/Signin">
