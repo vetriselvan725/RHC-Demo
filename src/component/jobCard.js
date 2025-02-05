@@ -26,6 +26,7 @@ const JobCard = ({ job }) => {
           <label className="font-bold text-gray-700 text-2xl text-center sm:text-left">Employment Type</label>
           <p className="font-medium text-xl text-gray-600 text-center sm:text-left mt-10">{job.EmploymentType}</p>
         </li>
+       
       </ul>
       <button className="bg-[#0082DA] text-xl font-semibold text-white px-6 py-3 rounded-lg 
         hover:bg-[#006bb3] transition-all duration-300 shadow-md">

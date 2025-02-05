@@ -1,9 +1,54 @@
+import { useState } from "react";
 import React from "react";
-import Group1 from '../assets/images/Group1.png';
 import phone1 from '../assets/images/phone1.png';
 import email1 from '../assets/images/email1.png';
 
 const Contactus = () => {
+    const [fullname, setfullname] = useState(""); 
+    const [phonenumber, setphonenumber] = useState(""); 
+    const [email, setemail] = useState(""); 
+    const [enquirytype, setenquirytype] = useState(""); 
+    const [entermessage, setentermessage] = useState("");
+    
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        const userData = {
+            fullname,
+            phonenumber,
+            email,
+            enquirytype,
+            entermessage,
+        };
+
+        try {
+            const response = await fetch('http://localhost:3000/contactus', {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(userData),
+            });
+
+            if (response.ok) {
+                // Clear input fields after successful signup
+                setfullname('');
+                setphonenumber('');
+                setemail('');
+                setenquirytype('');
+                setentermessage('');
+                alert('Contact successful!');
+            } else {
+                const data = await response.json();
+                alert('Error: ' + data.message);
+            }
+        } catch (error) {
+            alert('Error: ' + error.message);
+        }
+    };
+
+
+
     return (
         <>
             <section className="text-grey-800 mt-10">
@@ -38,12 +83,14 @@ const Contactus = () => {
                            
                             <div className="w-full lg:w-1/2 p-4" data-aos="zoom-in" data-aos-duration="2000">
                                 <div className="bg-white rounded-lg mt-10">
-                                    <form className="bg-white rounded-lg p-6 sm:p-12">
+                                    <form onSubmit={handleSubmit} className="bg-white rounded-lg p-6 sm:p-12">
                                         <div className="mb-6" data-aos="zoom-in" data-aos-duration="2000">
                                             <input 
                                                 type="text" 
-                                                name="name" 
-                                                placeholder="Full Name" 
+                                                name="fullname" 
+                                                placeholder="Full Name"
+                                                value={fullname}
+                                                onChange={(e) => setfullname(e.target.value)} 
                                                 className="w-full text-xl sm:text-2xl p-4 border border-2 hover:border-[blue] rounded-md" 
                                                 required 
                                             />
@@ -51,8 +98,10 @@ const Contactus = () => {
                                         <div className="mb-6" data-aos="zoom-in" data-aos-duration="2000">
                                             <input 
                                                 type="text" 
-                                                name="phone" 
+                                                name="phonenumber" 
                                                 placeholder="Phone Number" 
+                                                value={phonenumber}
+                                                onChange={(e) => setphonenumber(e.target.value)} 
                                                 className="w-full text-xl sm:text-2xl p-4 border-2 hover:border-[blue] rounded-md" 
                                                 required 
                                             />
@@ -62,13 +111,17 @@ const Contactus = () => {
                                                 type="text" 
                                                 name="email" 
                                                 placeholder="Email Id" 
+                                                value={email}
+                                                onChange={(e) => setemail(e.target.value)} 
                                                 className="w-full text-xl sm:text-2xl p-4 border-2 hover:border-[blue] rounded-md" 
                                                 required 
                                             />
                                         </div>
                                         <div className="mb-6" data-aos="zoom-in" data-aos-duration="2000">
                                             <select 
-                                                name="enquiryType" 
+                                                name="enquirytype" 
+                                                value={enquirytype}
+                                                onChange={(e) => setenquirytype(e.target.value)} 
                                                 className="w-full text-xl sm:text-2xl p-4 border-2 hover:border-[blue] rounded-md" 
                                                 required
                                             >
@@ -80,7 +133,9 @@ const Contactus = () => {
                                         </div>
                                         <div className="mb-6" data-aos="zoom-in" data-aos-duration="2000">
                                             <textarea 
-                                                name="message" 
+                                                name="entermessage" 
+                                                value={entermessage}
+                                                onChange={(e) => setentermessage(e.target.value)}
                                                 placeholder="Enter your message here..." 
                                                 rows="4" 
                                                 className="w-full text-xl sm:text-2xl p-4 border-2 hover:border-[blue] rounded-md" 
@@ -88,7 +143,7 @@ const Contactus = () => {
                                             />
                                         </div>
                                         <div className="mb-6" data-aos="zoom-in" data-aos-duration="2000">
-                                            <button 
+                                            <button type="submit" 
                                                 className="w-full text-xl sm:text-2xl p-3 border-2 hover:border-[blue] rounded-md bg-blue-600 hover:bg-blue-700 text-[#FFFF]" data-aos="zoom-in" data-aos-duration="2000"
                                             >
                                                 Get in Touch

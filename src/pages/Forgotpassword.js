@@ -2,32 +2,23 @@ import React, { useState, useEffect } from "react";
 import signup1 from "../assets/images/signup/signup1.png";
 import signup2 from "../assets/images/signup/signup2.png";
 import footerimg from "../assets/images/signup/footerimg.jpg";
+import axios from "axios";
 
-const Signin = () => {  
+const Forgotpassword = () => {  
 
-const [email, setEmail] = useState("");
-const [password, setPassword] = useState("");
-const [error, setError] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
 
-const handleLogin = async (e) => {
-  e.preventDefault();
-
-  const response = await fetch("http://localhost:3000/login", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ email, password }),
-  });
-
-  const data = await response.json();
-  
-  if (!response.ok) {
-    setError(data.message);
-  } else {
-    localStorage.setItem("token", data.token);
-    alert("Login successful!");
-    window.location.href = "/";
-  }
-};
+  const handleSubmit = async (e) => {
+    console.log(handleSubmit);
+    e.preventDefault();
+    try {
+      const res = await axios.post("http://localhost:3000/sendemail", { email });
+      setMessage(res.data.message);
+    } catch (error) {
+      setMessage("Error sending reset link. Try again.");
+    }
+  };
 
   return (
     <>
@@ -44,66 +35,50 @@ const handleLogin = async (e) => {
                       />
                     </div>
                   </a>
+                  <div className="mt-4 flex flex-row">
+                    <a className="focus:outline-none text-2xl lg:text-2xl font-bold ml-10" href="/SignIn">
+                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" className="mt-1 text-[#0082DA] text-md" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z">
+                      </path>
+                      </svg>
+                      </a>
+                      <div className="ml-3 text-[#0082DA] text-[16px]"><a href="/SignIn" className="text-2xl lg:text-2xl font-bold">Back to Sign in</a></div>
+                      </div>
                   <h2 className="mt-5 text-2xl lg:text-3xl font-bold text-[#000] font-font-sans ml-4 lg:ml-12">
-                    <span className="text-[#0082da] mr-3">Welcome,</span>
-                    Sign up to RHC 360 Solutions
+                    Forgot password? Enter your email ID
                   </h2>
                  
-                  <form onSubmit={handleLogin} className="bg-white rounded-lg p-4 lg:p-12" >
+                  <form  className="bg-white rounded-lg p-4 lg:p-12" onSubmit={handleSubmit}>
                     <div className="mb-4">
                       <input
                         type="text"
                         name="email"
                         placeholder="Email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)} 
+                        onChange={(e) => setEmail(e.target.value)}
                         className="w-full text-lg lg:text-2xl p-2 border-2 hover:border-[#0082DA] rounded-md"
                         required
                       />
                     </div>
-                    <div className="mb-4">
-                      <input
-                        type="password"
-                        name="password"
-                        placeholder="Password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        className="w-full text-lg lg:text-2xl p-2 border-2 hover:border-[#0082DA] rounded-md"
-                        required
-                      />
-                    </div>
-                    <div className="py-4 flex items-center w-full">
-                      <input
-                        type="checkbox"
-                        className="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 mr-4 mt-2"
-                      />
-                      <label className="text-lg lg:text-2xl text-[#000]">
-                        Save Password
-                      </label>
-                      <a
-                        className="ml-auto text-lg lg:text-2xl text-[#000]"
-                        href="/Forgotpassword"
-                      >
-                        Forget Password?
-                      </a>
-                    </div>
+                   
+                   
                     <div className="mb-4">
                       <button
                         type="submit"
                         className="w-full text-lg lg:text-2xl p-3 border-2 hover:border-[blue] rounded-md bg-blue-600 hover:bg-blue-700 text-white font-bold"
                       >
-                        Sign Up
+                       Send Reset Link
                       </button>
-                      {error && <p style={{ color: "red" }}>{error}</p>}
+                     
                       <a href="/Signup">
                         <h2 className="mt-5 text-lg lg:text-2xl text-[#000] font-font-sans">
-                          Already have an account?
-                          <span className="text-[#0082da] ml-3">Sign in</span>
+                        Having problems with your account?
+                          <span className="text-[#0082da] ml-3">Contact us</span>
                         </h2>
                       </a>
                      
                     </div>
                   </form>
+                  {message && <p className="text-center text-red-600">{message}</p>}
                 </div>
               </div>
 
@@ -128,4 +103,4 @@ const handleLogin = async (e) => {
   );
 };
 
-export default Signin;
+export default Forgotpassword;

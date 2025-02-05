@@ -5,6 +5,8 @@ import Footer from "../component/Footer";
 import Copyright from "../component/Copyright";
 import JobCard from "./jobCard";
 
+
+
 const National = () => {
   const [showJobType, setShowJobType] = useState(true);
   const [showEmploymentType, setShowEmploymentType] = useState(true);
@@ -14,6 +16,7 @@ const National = () => {
   const [data, setData] = useState(null); 
   const [selectedJobTypes, setSelectedJobTypes] = useState([]);
   const [selectedEmploymentTypes, setSelectedEmploymentTypes] = useState([]);
+  const [clientname, setclientname] = useState(""); 
 
   useEffect(() => {
     fetch("http://localhost:3000/jobs")
@@ -21,6 +24,8 @@ const National = () => {
       .then((data) => setData(data))
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
+
+
 
   const handleSectorChange = (event) => {
     setSector(event.target.value);
@@ -48,6 +53,7 @@ const National = () => {
     const isSectorMatch = sector ? job.Sector.toLowerCase() === sector.toLowerCase() : true;
     const isKeywordMatch = keyword ? job.JobName.toLowerCase().includes(keyword.toLowerCase()) : true;
     const isLocationMatch = location ? job.Location.toLowerCase().includes(location.toLowerCase()) : true;
+    
     const isJobTypeMatch = selectedJobTypes.length > 0 ? selectedJobTypes.includes(job.JobType) : true;
     const isEmploymentTypeMatch = selectedEmploymentTypes.length > 0 ? selectedEmploymentTypes.includes(job.EmploymentType) : true;
 
@@ -152,7 +158,7 @@ const National = () => {
             )}
           </div>
 
-          <div className="mb-4 mt-6">
+          <div className="mb-4 mt-6" data-aos="zoom-in" data-aos-duration="2000">
             <div className="flex justify-between items-center mb-4">
               <h2 className="text-sm sm:text-3xl font-bold">Employment Type</h2>
               <button className="focus:outline-none text-xl" onClick={() => setShowEmploymentType(!showEmploymentType)}>

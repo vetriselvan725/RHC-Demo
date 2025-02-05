@@ -146,7 +146,7 @@ const Menu = () => {
                                 <li>
                                     <a
                                         className="block p-6 text-lg lg:text-2xl font-semibold hover:text-blue-600"
-                                        href="/"
+                                        href="/Clients"
                                     >
                                         Clients
                                     </a>

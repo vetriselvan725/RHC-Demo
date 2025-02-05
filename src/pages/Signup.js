@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import React from "react";
 import signup1 from '../assets/images/signup/signup1.png';
 import signup2 from '../assets/images/signup/signup2.png';
@@ -12,8 +11,10 @@ const Signup = () => {
     const [phone, setPhone] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    
     const handleSubmit = async (e) => {
         e.preventDefault();
+
         const userData = {
             firstName,
             lastName,
@@ -31,9 +32,22 @@ const Signup = () => {
                 },
                 body: JSON.stringify(userData),
             });
-            
+
+            if (response.ok) {
+                // Clear input fields after successful signup
+                setFirstName('');
+                setLastName('');
+                setEmail('');
+                setPhone('');
+                setPassword('');
+                setConfirmPassword('');
+                alert('Signup successful!');
+            } else {
+                const data = await response.json();
+                alert('Error: ' + data.message);
+            }
         } catch (error) {
-            alert('Error: ' + error.response.data.message);
+            alert('Error: ' + error.message);
         }
     };
 
@@ -44,6 +58,7 @@ const Signup = () => {
                     <div className="container mx-auto px-4 sm:px-6 lg:px-12">
                         <div className="flex flex-col lg:flex-row items-center lg:items-start">
 
+                          
                             <div className="w-full lg:w-1/2 p-4 shadow-md rounded mb-8 lg:mb-0">
                                 <div className="bg-white rounded-lg mt-10">
                                     <a href="/">
@@ -56,9 +71,12 @@ const Signup = () => {
                                         Sign up to RHC 360 Solutions
                                     </h2>
                                     <form onSubmit={handleSubmit} className="bg-white rounded-lg p-6 sm:p-12">
+                                        
                                         <div className="flex flex-col sm:flex-row sm:space-x-4">
                                             <div className="mb-4 w-full">
-                                                <input type="text" name="firstName"
+                                                <input 
+                                                    type="text" 
+                                                    name="firstName"
                                                     placeholder="First Name"
                                                     value={firstName}
                                                     onChange={(e) => setFirstName(e.target.value)}
@@ -78,6 +96,7 @@ const Signup = () => {
                                                 />
                                             </div>
                                         </div>
+
                                         <div className="flex flex-col sm:flex-row sm:space-x-4">
                                             <div className="mb-4 w-full">
                                                 <input
@@ -101,6 +120,7 @@ const Signup = () => {
                                                 />
                                             </div>
                                         </div>
+
                                         <div className="mb-4">
                                             <input
                                                 type="password"
@@ -112,6 +132,7 @@ const Signup = () => {
                                                 required
                                             />
                                         </div>
+
                                         <div className="mb-4">
                                             <input
                                                 type="password"
@@ -123,8 +144,12 @@ const Signup = () => {
                                                 required
                                             />
                                         </div>
+
                                         <div className="mb-4">
-                                            <button type="submit" className="w-full text-2xl p-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-md">
+                                            <button 
+                                                type="submit" 
+                                                className="w-full text-2xl p-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-md"
+                                            >
                                                 Sign Up
                                             </button>
                                             <a href="/Signin">
@@ -138,7 +163,7 @@ const Signup = () => {
                                 </div>
                             </div>
 
-
+                         
                             <div className="w-full lg:w-1/2">
                                 <div className="relative h-[300px] sm:h-[400px] lg:h-auto">
                                     <img src={signup1} alt="Sign-up image" className="w-full h-full object-cover rounded-lg" />
@@ -146,6 +171,7 @@ const Signup = () => {
                                     />
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>

@@ -3,6 +3,8 @@ import Homepage from './pages/Homepage';
 import SignUp from './pages/Signup';
 import Signin from './pages/Signin';
 import National from './component/National';
+import Clients from './component/Clients';
+import Forgotpassword from './pages/Forgotpassword';
 
 
 
@@ -19,7 +21,9 @@ function App() {
 
         <Route path="/National" element={<National></National>}></Route>
 
-        
+        <Route path="/Clients" element={<Clients></Clients>}></Route>
+
+        <Route path="/Forgotpassword" element={<Forgotpassword></Forgotpassword>}></Route>
 
       </Routes>
     </BrowserRouter>
