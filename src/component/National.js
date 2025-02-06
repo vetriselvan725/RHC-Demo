@@ -4,6 +4,7 @@ import Menu from "../component/Menu";
 import Footer from "../component/Footer";
 import Copyright from "../component/Copyright";
 import JobCard from "./jobCard";
+import Jobupdate from "./Jobupdate";
 
 
 
@@ -16,7 +17,6 @@ const National = () => {
   const [data, setData] = useState(null); 
   const [selectedJobTypes, setSelectedJobTypes] = useState([]);
   const [selectedEmploymentTypes, setSelectedEmploymentTypes] = useState([]);
-  const [clientname, setclientname] = useState(""); 
 
   useEffect(() => {
     fetch("http://localhost:3000/jobs")
@@ -201,7 +201,7 @@ const National = () => {
           </div>
         </div>
       </div>
-
+      <Jobupdate />
       <Footer />
       <Copyright />
     </>
